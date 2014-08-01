@@ -6,7 +6,7 @@ Java Refactoring Test Project
 Introduction
 ------------
 
-This is a refactoring testing project used by H2RD hiring process.
+This is a refactoring testing project used for our hiring process.
 
 The idea of this exercise is to evaluate your ability to identify poor coding practices and improve the code through the use of best practices.
 
@@ -24,9 +24,9 @@ Feel free to modify whatever you want! :)
 Pre-reqs
 --------
 
-* The first thing you need is to have a bitbucket account. If you don't have it yet, you can create it on [bitbucket website][2].
+* The first thing you need is to have a github account. If you don't have it yet, you can create it on [github website][2].
 
-* This repo uses Mercurial as SCM. If you don't have it you need to install it on your machine. You can choose between installing a [command line version][3] or a [graphical tool][4] to manage it.
+* This repo uses git as SCM. If you don't have it you need to install it on your machine. You can download git for your OS on the [official git website][3]
 
 * To build this project you must install Maven. If you do not have it installed, please refer to the [maven website][1] for assistance.
 
@@ -35,18 +35,17 @@ Pre-reqs
 Instructions
 ------------
 
-1. Fork this repo using the bitbucket website.
-1. Clone your new forked repo from bitbucket.
+1. Fork this repo from the github website to your github account.
+1. Clone your new forked repo from github to your computer.
 1. At the project root directory, run:
     `$ mvn package`
-1. At this point the maven build should run successfully and every test should be green.
+1. At this point the maven build should run successfully and every test should be passing.
 1. Perform the refactoring you deem necessary, following what you know to be the best practices. (feel free to innovate!).
-1. At the end of your work you should push the code to your forked repo but you should **NOT** do a pull request.
-1. The final step is to send an email to your contact at the company informing him/her that you finished the test and the username you used on bitbucket.
+1. At the end of your work you should push the code to your forked repo. (Attention: You should **NOT** do a pull request).
+1. The final step is to send an email to your contact at the company informing him/her that you finished the test and the username you used on github.
 
 Good luck!
 
 [1]: http://maven.apache.org/
-[2]: https://bitbucket.org/
-[3]: http://mercurial.selenic.com/
-[4]: http://mercurial.selenic.com/wiki/TortoiseHg
+[2]: https://github.com/
+[3]: http://git-scm.com/
