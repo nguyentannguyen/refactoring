@@ -1,2 +1,6 @@
-target/
+target
+*/target/
 .swp
+.idea
+*.iml
+*.DS_Store
