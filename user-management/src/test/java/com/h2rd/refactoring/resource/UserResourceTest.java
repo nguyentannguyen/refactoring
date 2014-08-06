@@ -1,6 +1,7 @@
 package com.h2rd.refactoring.resource;
 
-import com.h2rd.refactoring.dataAccess.UserDAO;
+import com.h2rd.refactoring.dao.UserDAO;
+import com.h2rd.refactoring.exception.DAOException;
 import com.h2rd.refactoring.model.User;
 import com.h2rd.refactoring.model.builder.UserBuilder;
 import org.junit.Test;
@@ -13,6 +14,7 @@ import javax.ws.rs.core.Response;
 import java.util.Arrays;
 
 import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.containsString;
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.nullValue;
 
@@ -63,8 +65,11 @@ public class UserResourceTest {
         userDAO.saveUser(user);
 
         userResource.deleteUser("Test delete user", null, null);
-        User deletedUser = userDAO.findUser("Test delete user");
-        assertThat("Check if user deleted", deletedUser, nullValue());
+        try{
+            User deletedUser = userDAO.findUser("Test delete user");
+        }catch (DAOException e){
+            assertThat("Could not find the user", e.getMessage(), containsString("Could not find the user"));
+        }
     }
 
     @Test

@@ -1,6 +1,6 @@
-package com.h2rd.refactoring.dataAccess;
+package com.h2rd.refactoring.dao;
 
-import com.h2rd.refactoring.exception.DAORuntimeException;
+import com.h2rd.refactoring.exception.DAOException;
 import com.h2rd.refactoring.model.User;
 import org.springframework.stereotype.Service;
 
@@ -40,7 +40,7 @@ public class UserDAOImpl implements UserDAO{
             }
         }
         catch(Exception e){
-            throw new DAORuntimeException(e.getMessage());
+            throw new DAOException(e.getMessage());
         }
     }
 
@@ -53,8 +53,8 @@ public class UserDAOImpl implements UserDAO{
             }
         }
         catch(Exception e){
-            throw new DAORuntimeException(e.getMessage());
+            throw new DAOException(e.getMessage());
         }
-        return null;
+        throw new DAOException("Could not find the user: '" + name + "'");
     }
 }

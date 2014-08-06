@@ -1,4 +1,4 @@
-package com.h2rd.refactoring.dataAccess;
+package com.h2rd.refactoring.dao;
 
 import com.h2rd.refactoring.model.User;
 

@@ -1,6 +1,6 @@
 package com.h2rd.refactoring.service;
 
-import com.h2rd.refactoring.dataAccess.UserDAO;
+import com.h2rd.refactoring.dao.UserDAO;
 import com.h2rd.refactoring.model.User;
 import com.h2rd.refactoring.validation.UserValidationService;
 import org.springframework.beans.factory.annotation.Autowired;

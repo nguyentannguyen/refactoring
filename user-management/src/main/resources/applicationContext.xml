@@ -11,7 +11,7 @@
 
     <context:component-scan base-package="com.h2rd.refactoring.service" />
     <context:component-scan base-package="com.h2rd.refactoring.validation" />
-    <context:component-scan base-package="com.h2rd.refactoring.dataAccess" />
+    <context:component-scan base-package="com.h2rd.refactoring.dao" />
     <context:component-scan base-package="com.h2rd.refactoring.resource" />
 
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">

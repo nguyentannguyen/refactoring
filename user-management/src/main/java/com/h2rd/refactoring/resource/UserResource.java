@@ -8,6 +8,7 @@ import org.springframework.stereotype.Component;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.GenericEntity;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import java.util.List;
 
@@ -19,14 +20,12 @@ public class UserResource{
     private UserService userService;
 
     @GET
-    @Path("/find")
     public Response getUsers() {
         GenericEntity<List<User>> usersEntity = new GenericEntity<List<User>>(userService.getUsers()) {};
         return Response.status(200).entity(usersEntity).build();
     }
 
     @POST
-    @Path("/add")
     public Response addUser(@QueryParam("name") String name,
                             @QueryParam("email") String email,
                             @QueryParam("role") List<String> roles) {
@@ -42,7 +41,6 @@ public class UserResource{
     }
 
     @PUT
-    @Path("/update")
     public Response updateUser(@QueryParam("name") String name,
                                @QueryParam("email") String email,
                                @QueryParam("role") List<String> roles) {
@@ -58,7 +56,6 @@ public class UserResource{
     }
 
     @DELETE
-    @Path("/delete")
     public Response deleteUser(@QueryParam("name") String name,
                                @QueryParam("email") String email,
                                @QueryParam("role") List<String> roles) {
@@ -73,7 +70,7 @@ public class UserResource{
     }
 
     @GET
-    @Path("/search")
+    @Path("/find")
     public Response findUser(@QueryParam("name") String name) {
         User user = userService.findUserByName(name);
         return Response.ok().entity(user).build();

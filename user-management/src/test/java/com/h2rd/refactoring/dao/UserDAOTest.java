@@ -1,5 +1,6 @@
-package com.h2rd.refactoring.dataAccess;
+package com.h2rd.refactoring.dao;
 
+import com.h2rd.refactoring.exception.DAOException;
 import com.h2rd.refactoring.model.User;
 import com.h2rd.refactoring.model.builder.UserBuilder;
 import org.junit.Before;
@@ -12,14 +13,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import java.util.Arrays;
 
 import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.containsString;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations="classpath:test-applicationContext.xml")
 public class UserDAOTest {
 
     @Autowired
-    private UserDAO userDao;
+    private UserDAO userDAO;
 
     private User user;
 
@@ -34,26 +35,30 @@ public class UserDAOTest {
 
     @Test
     public void getUsersTest() {
-        userDao.getUsers();
+        userDAO.getUsers();
     }
 
     @Test
     public void saveUserTest() {
-        userDao.saveUser(user);
+        userDAO.saveUser(user);
     }
 
     @Test
     public void updateUserTest() {
-        userDao.updateUser(user);
+        userDAO.updateUser(user);
     }
 
     @Test
     public void deleteUserTest() {
-        userDao.deleteUser(user);
+        userDAO.deleteUser(user);
     }
 
     @Test
     public void findUserTest() {
-        userDao.findUser("Fake Name");
+        try{
+            User deletedUser = userDAO.findUser("abc");
+        }catch (DAOException e){
+            assertThat("Could not find the user", e.getMessage(), containsString("Could not find the user"));
+        }
     }
 }

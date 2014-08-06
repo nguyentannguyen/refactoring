@@ -1,6 +1,6 @@
 package com.h2rd.refactoring.validation;
 
-import com.h2rd.refactoring.exception.ValidationRuntimeException;
+import com.h2rd.refactoring.exception.ValidationException;
 import com.h2rd.refactoring.model.User;
 import org.springframework.stereotype.Service;
 import org.springframework.util.CollectionUtils;
@@ -36,19 +36,19 @@ public class UserValidationServiceImpl implements UserValidationService{
 
     private void validateName(String name){
         if (StringUtils.isEmpty(name)){
-            throw new ValidationRuntimeException("Name is not valid");
+            throw new ValidationException("Name is not valid");
         }
     }
 
     private void validateEmail(String email){
         if (StringUtils.isEmpty(email)){
-            throw new ValidationRuntimeException("Email is not valid");
+            throw new ValidationException("Email is not valid");
         }
     }
 
     private void validateRoles(List<String> roles){
         if (CollectionUtils.isEmpty(roles)){
-            throw new ValidationRuntimeException("Role is not valid");
+            throw new ValidationException("Role is not valid");
         }
     }
 }
